@@ -11,9 +11,9 @@
     <url>http://</url>
     <developers>
         <developer>
-            <id>vchibaev</id>
+            <id>shibaevv</id>
             <name>Valeri Chibaev</name>
-            <email>shibaevv at apollosoft.net</email>
+            <email>shibaevv at gmail.com</email>
             <organization>ApolloSoft Pty Ltd</organization>
             <roles>
                 <role>Senior Java Developer</role>
@@ -97,6 +97,9 @@
         <ats.dataSource.jndiName>java:comp/env/${ats.dataSource}</ats.dataSource.jndiName>
         <ats.jta-data-source>java:/${ats.dataSource}</ats.jta-data-source>
 
+        <log.dir>logs</log.dir>
+        <logger.level>DEBUG</logger.level>
+
         <!-- artifacts provided by jboss -->
         <profile.scope>provided</profile.scope>
 
@@ -144,7 +147,7 @@
         <servlet-api.version>2.5</servlet-api.version>
         <opencsv.version>2.0</opencsv.version>
         <poi.version>3.9</poi.version>
-        <spring.version>3.2.7.RELEASE</spring.version>
+        <spring.version>3.2.8.RELEASE</spring.version>
         <spring-security.version>3.2.4.RELEASE</spring-security.version>
         <spring.ldap.version>1.3.1.RELEASE</spring.ldap.version>
         <!--spring.ldap.version>${spring.version}</spring.ldap.version-->

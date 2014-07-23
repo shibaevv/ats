@@ -9,6 +9,7 @@ git init
 git add .
 git commit -m 'First commit'
 git remote add origin https://github.com/shibaevv/ats.git
+git push -u origin master
 
 cd /home/shibaevv/dev/workspace
 git clone https://shibaevv@github.com/shibaevv/ats.git ats
