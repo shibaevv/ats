@@ -1,0 +1,13 @@
+<!DOCTYPE jboss-web
+    PUBLIC "-//JBoss//DTD Web Application 2.4//EN"
+    "http://www.jboss.org/j2ee/dtd/jboss-web_5_0.dtd">
+<jboss-web>
+
+    <context-root>/${app.context.name}</context-root>
+
+    <resource-env-ref>
+        <resource-env-ref-name>${ats.dataSource}</resource-env-ref-name>
+        <jndi-name>${ats.jta-data-source}</jndi-name>
+    </resource-env-ref>
+
+</jboss-web>

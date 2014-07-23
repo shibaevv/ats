@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorators">
+    <excludes>
+        <pattern>*/blank.html</pattern>
+
+        <pattern>/myaction/*</pattern>
+
+        <pattern>/audit/*</pattern>
+        <pattern>/issue/*</pattern>
+        <pattern>/action/*</pattern>
+        <pattern>/comment/*</pattern>
+
+        <pattern>/auditAdmin/*</pattern>
+        <pattern>/issueAdmin/*</pattern>
+        <pattern>/actionAdmin/*</pattern>
+        <pattern>/commentAdmin/*</pattern>
+
+        <pattern>/document/*</pattern>
+        <pattern>/filter/*</pattern>
+        <pattern>/setup/*</pattern>
+        <pattern>/user/*</pattern>
+    </excludes>
+    <decorator name="default" page="default.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+    <decorator name="default-nonav" page="default-nonav.jsp">
+        <pattern>/login.*</pattern>
+    </decorator>
+</decorators>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ========================= JPA DEFINITIONS ===================== -->
+    <import resource="classpath:net/apollosoft/ats/spring/spring-inc-jpa.xml" />
+
+    <!-- ========================= DAO DEFINITIONS ========================= -->
+    <import resource="classpath:net/apollosoft/ats/spring/spring-inc-dao.xml" />
+
+    <!-- ========================= SERVICE DEFINITIONS ===================== -->
+    <import resource="classpath:net/apollosoft/ats/spring/spring-inc-service.xml" />
+
+    <!-- ========================= VALIDATOR DEFINITIONS =================== -->
+    <import resource="classpath:net/apollosoft/ats/spring/spring-inc-validator.xml" />
+
+    <!-- ========================= TASK DEFINITIONS =================== -->
+    <import resource="classpath:net/apollosoft/ats/spring/spring-inc-task.xml" />
+
+    <!-- ========================= COMPASS DEFINITIONS ========================= -->
+    <!--import resource="classpath:net/apollosoft/ats/spring/spring-inc-compass.xml" /-->
+
+</beans>

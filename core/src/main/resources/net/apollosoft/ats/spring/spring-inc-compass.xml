@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:compass="http://www.compass-project.org/schema/spring-core-config"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.compass-project.org/schema/spring-core-config http://www.compass-project.org/schema/spring-compass-core-config-2.2.xsd"
+    default-autowire="byName" default-lazy-init="false">
+
+	<bean class="org.compass.spring.support.CompassContextBeanPostProcessor" />
+
+    <compass:compass name="compass" txManager="transactionManager">
+        <compass:connection>
+            <compass:file path="/tmp/${app.context.name}/compass-${application.env}" />
+        </compass:connection>
+        <compass:mappings>
+            <compass:scan basePackage="net.apollosoft.ats.audit.domain.hibernate" />
+        </compass:mappings>
+    </compass:compass>
+
+    <!-- Configures a post processor bean that enables @CompassContext annotation -->
+    <compass:context />
+
+    <!-- A direct LocalCompassSessionBean, used with code within a transaction context -->
+    <compass:session id="compassSession" compass="compass" />
+
+    <bean id="compassGps" class="org.compass.gps.device.jpa.embedded.DefaultJpaCompassGps"
+        init-method="start" destroy-method="stop">
+        <constructor-arg ref="compass" />
+		<property name="gpsDevices">
+			<list>
+				<bean class="org.compass.gps.device.AbstractMirrorGpsDeviceWrapper">
+					<property name="gpsDevice" ref="gpsDevice" />
+				</bean>
+			</list>
+		</property>
+    </bean>
+	<bean id="gpsDevice" class="org.compass.gps.device.jpa.JpaGpsDevice" autowire="byType">
+		<property name="name" value="jpaGpsDevice" />
+		<property name="fetchCount" value="1000" />
+		<property name="injectEntityLifecycleListener" value="true" />
+		<property name="mirrorDataChanges" value="true" />
+		<!--property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="nativeExtractor" ref="nativeExtractor" />
+		<property name="entitiesLocator" ref="entitiesLocator" />
+		<property name="entitiesIndexer" ref="entitiesIndexer" /-->
+	</bean>
+	<bean id="nativeExtractor" class="org.compass.gps.device.jpa.extractor.SpringNativeJpaExtractor" />
+	<bean id="entitiesLocator" class="org.compass.gps.device.jpa.entities.DefaultJpaEntitiesLocator" />
+	<bean id="entitiesIndexer" class="org.compass.gps.device.jpa.indexer.DefaultJpaIndexEntitiesIndexer" />
+
+</beans>

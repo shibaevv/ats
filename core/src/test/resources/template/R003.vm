@@ -1,0 +1,143 @@
+<html>
+    <body>
+        <table>
+            <tr>
+                <td>Dear $toUser.firstName $toUser.lastName,</td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td>
+                    You are registered as a user with oversight of actions in the Argus Actions site.
+                </td>    
+            </tr>
+            <tr>
+                <td>
+                    This e-mail provides information on the actions you can update.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Click the following link to access the site to view the action/s assigned to your team: <a href="$url">Argus Actions</a>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            #if( !$overdueActions.isEmpty() )
+            <tr>
+                <td><b>Overdue Actions</b></td>
+            </tr>
+            <tr>
+                <td>The following actions remain open and are past their due date:</td>
+            </tr>
+            <tr>
+                <td>
+                    <table border="1" cellPadding="5" cellspacing="0">
+                        <tr>
+                        	<th>Report Type</th>
+                            <th>Report Title</th>
+                            <th>Issue Title</th>
+                            <th>Action No.</th>
+                            <th>Action Details</th>
+                            <th>Due Date</th>
+                            <th>Person Responsible</th>
+                        </tr>
+                        #foreach( $action in $overdueActions )
+                        #set( $issue = $action.issue )
+                        #set( $audit = $issue.audit )
+                            <tr>
+                            	<td>$audit.reportType.name</td>
+                                <td>$audit.name</td>
+                                <td>$issue.name</td>
+                                <td>$action.listIndex</td>
+                                <td>$action.detail.replaceAll("\n", "<br />")</td>
+                                <td>
+	                                #if($action.dueDate)
+	                                    $dateTool.format($datePattern, $action.dueDate)
+	                                #end
+                                </td>
+                                <td>
+	                                #set( $index = 1 )
+	                                #set( $listSize = $listTool.size($action.responsibleUsers) )
+	                                #foreach( $u in $action.responsibleUsers )
+	                                    $u.fullName
+	                                    #if( $index<$listSize )
+		                                     ,
+		                                     #set($index = $index+1)
+	                                    #end
+	                                #end
+                                </td>
+                            </tr>
+                        #end
+                    </table>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td>
+                    <p>Please ensure a comment is included for any overdue actions to explain why the due date has been missed, what action has been taken to date and when the action is expected to be complete.</p>
+                </td>
+            </tr>
+            #end
+            <tr><td>&nbsp;</td></tr>
+            #if( !$dueSoonActions.isEmpty() )
+            <tr>
+                <td><b>Actions falling due this month</b></td>
+            </tr>
+            <tr>
+                <td>
+                    <table border="1" cellPadding="5" cellspacing="0">
+                        <tr>
+                        	<th>Report Type</th>
+                            <th>Report Title</th>
+                            <th>Issue Title</th>
+                            <th>Action No.</th>
+                            <th>Action Details</th>
+                            <th>Due Date</th>
+                            <th>Person Responsible</th>
+                        </tr>
+                        #foreach( $action in $dueSoonActions )
+                        #set( $issue = $action.issue )
+                        #set( $audit = $issue.audit )
+                            <tr>
+                            	<td>$audit.reportType.name</td>
+                                <td>$audit.name</td>
+                                <td>$issue.name</td>
+                                <td>$action.listIndex</td>
+                                <td>$action.detail</td>
+                                <td>
+	                                #if($action.dueDate)
+	                                    $dateTool.format($datePattern, $action.dueDate)
+	                                #end
+                                </td>
+                                <td>
+	                                #set( $index = 1 )
+	                                #set( $listSize = $listTool.size($action.responsibleUsers) )
+	                                #foreach( $u in $action.responsibleUsers )
+	                                    $u.fullName
+	                                    #if( $index<$listSize )
+		                                     ,
+		                                     #set($index = $index+1)
+	                                    #end
+	                                #end
+                                </td>
+                            </tr>
+                        #end
+                    </table>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td>
+                    <p>Please ensure the status of these action/s is updated and completion comments are added prior to the due date.</p>
+                </td>
+            </tr>
+            #end
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td>Regards,</td>
+            </tr>
+            <tr>
+                <td>Argus Actions</td>
+            </tr>
+        </table>
+    </body>
+</html>

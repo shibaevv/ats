@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-lazy-init="false">
+
+	<bean id="auditValidator"
+		class="net.apollosoft.ats.audit.validation.AuditValidator" />
+	<bean id="actionValidator"
+		class="net.apollosoft.ats.audit.validation.ActionValidator" />
+	<bean id="commentValidator"
+		class="net.apollosoft.ats.audit.validation.CommentValidator" />
+	<bean id="issueValidator"
+		class="net.apollosoft.ats.audit.validation.IssueValidator" />
+	<bean id="userMatrixValidator"
+		class="net.apollosoft.ats.audit.validation.UserMatrixValidator" />
+	<bean id="auditGroupDivisionValidator"
+		class="net.apollosoft.ats.audit.validation.AuditGroupDivisionValidator" />
+	<bean id="actionGroupDivisionValidator"
+		class="net.apollosoft.ats.audit.validation.ActionGroupDivisionValidator" />
+	<bean id="actionResponsibleValidator"
+		class="net.apollosoft.ats.audit.validation.ActionResponsibleValidator" />
+
+</beans>
+

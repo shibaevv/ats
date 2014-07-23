@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    version="1.0">
+
+    <persistence-unit name="ats" transaction-type="RESOURCE_LOCAL">
+        <class>net.apollosoft.ats.audit.domain.hibernate.Action</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.ActionGroupDivision</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.ActionResponsible</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.Audit</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.AuditGroupDivision</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.Comment</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.CommentDocument</class>
+        <class>net.apollosoft.ats.domain.hibernate.Document</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.Issue</class>
+        <!--class>net.apollosoft.ats.audit.domain.hibernate.Tag</class-->
+        <class>net.apollosoft.ats.domain.hibernate.Template</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.ActionStatus</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.ActionFollowupStatus</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.BusinessStatus</class>
+        <!--class>net.apollosoft.ats.audit.domain.hibernate.refdata.CategoryType</class-->
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.ParentRisk</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.ParentRiskCategory</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.Rating</class>
+        <class>net.apollosoft.ats.domain.hibernate.refdata.ReportType</class>
+        <class>net.apollosoft.ats.domain.hibernate.refdata.UserType</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.Division</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.Function</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.Group</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.Role</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.RoleFunction</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.User</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.UserGroupDivision</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.UserMatrix</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect" />
+            <!-- http://ehcache.org/documentation/hibernate.html -->
+            <property name="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.SingletonEhCacheProvider" />
+            <property name="hibernate.cache.region.factory_class" value="net.sf.ehcache.hibernate.SingletonEhCacheRegionFactory" />
+            <property name="net.sf.ehcache.configurationResourceName" value="/ehcache.xml" />
+            <property name="hibernate.cache.use_query_cache" value="true" />
+            <property name="hibernate.cache.use_second_level_cache" value="true" />
+            <property name="hibernate.flush" value="never" />
+            <!--property name="hibernate.hbm2ddl.auto" value="validate" /-->
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.generate_statistics" value="false" />
+            <property name="hibernate.bytecode.use_reflection_optimizer" value="true" />
+        </properties>
+    </persistence-unit>
+
+</persistence>

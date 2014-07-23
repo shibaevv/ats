@@ -1,0 +1,75 @@
+<html>
+    <body>
+        <table>
+            <tr>
+                <td>Dear $toUser.firstName $toUser.lastName,</td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td>
+                    You are registered as the person responsible for actions in the Argus Actions site.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    This e-mail provides information on the actions you can update.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Click the following link to access the site to view the action/s assigned to you: <a href="$url">Argus Actions</a>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td>Actions assigned to you:</td>
+            </tr>
+            <tr>
+                <td>
+                    <table border="1" cellPadding="5" cellspacing="0">
+                        <tr>
+                            <th>Report Title </th>
+                             <th>Issue Title</th>
+                             <th>Action No.</th>
+                              <th>Action Details</th>
+                              <th>Due Date</th>
+                        </tr>
+                        #foreach( $action in $actions )
+                        #set( $issue = $action.issue )
+                        #set( $audit = $issue.audit )
+                            <tr>
+                                <td>$audit.name</td>
+                                <td>$issue.name</td>
+                                <td>$action.listIndex</td>
+                                <td>$action.detail.replaceAll("\n", "<br />")</td>
+                                <td>
+                                #if($action.dueDate)
+                                    $dateTool.format($datePattern, $action.dueDate)
+                                #end    
+                                </td>
+                            </tr>
+                        #end
+                    </table>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td>
+                    Please ensure the status of these action/s is updated and completion comments are added prior to the due date.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    If you need assistance using Argus Actions, please contact ${audit.reportType.name}.
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td>Regards,</td>
+            </tr>
+            <tr>
+                <td>Argus Actions</td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+####################################################
+ssh -i /Users/shibaevv/.ssh/valeri-macbookpro-apollosoft root@jboss.apollosoft.net.au
+ssh -i /Users/shibaevv/.ssh/valeri-macbookpro-apollosoft shibaevv@jboss.apollosoft.net.au
+
+cd /home/shibaevv/dev/workspace/ats
+# rm -rf .git
+# find . -name .cvsignore -print0 | xargs -0 git rm --ignore-unmatch
+git init
+git add .
+git commit -m 'First commit'
+git remote add origin https://github.com/shibaevv/ats.git
+
+cd /home/shibaevv/dev/workspace
+git clone https://shibaevv@github.com/shibaevv/ats.git ats
+
+cd /home/shibaevv/dev/workspace/ats
+git pull
+mvn clean install -Pjboss7

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-lazy-init="false">
+
+	<bean id="actionService" class="net.apollosoft.ats.audit.service.impl.ActionServiceImpl" />
+	<bean id="auditService" class="net.apollosoft.ats.audit.service.impl.AuditServiceImpl" />
+	<bean id="commentService" class="net.apollosoft.ats.audit.service.impl.CommentServiceImpl" />
+	<bean id="documentService" class="net.apollosoft.ats.audit.service.impl.DocumentServiceImpl">
+		<property name="baseUrl" value="${application.baseUrl}" />
+	</bean>
+	<bean id="emailService" class="net.apollosoft.ats.audit.service.impl.EmailServiceImpl">
+		<property name="smtpHost" value="${email.smtpHost}" />
+		<property name="smtpPort" value="${email.smtpPort}" />
+		<property name="emailExt" value="${email.ext}" />
+		<property name="userName" value="" />
+		<property name="password" value="" />
+		<property name="from" value="${email.from}" />
+		<property name="to" value="${email.to}" />
+	</bean>
+	<bean id="entityService" class="net.apollosoft.ats.audit.service.impl.EntityServiceImpl" />
+	<bean id="issueService" class="net.apollosoft.ats.audit.service.impl.IssueServiceImpl" />
+	<bean id="securityService" class="net.apollosoft.ats.audit.service.impl.SecurityServiceImpl" />
+	<bean id="userService" class="net.apollosoft.ats.audit.service.impl.UserServiceImpl" />
+
+</beans>

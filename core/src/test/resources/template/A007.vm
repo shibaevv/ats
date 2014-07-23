@@ -1,0 +1,1 @@
+Due date changed from $dateTool.format($datePattern, $before.dueDate) to $dateTool.format($datePattern, $after.dueDate).

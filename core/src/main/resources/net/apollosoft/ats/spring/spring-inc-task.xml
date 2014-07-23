@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:task="http://www.springframework.org/schema/task"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd"
+    default-autowire="byName" default-lazy-init="false">
+
+	<bean id="notificationTask"
+	      class="net.apollosoft.ats.audit.task.impl.NotificationTaskImpl" />
+
+    <!-- http://en.wikipedia.org/wiki/CRON_expression -->
+	<task:scheduled-tasks scheduler="scheduler">
+	    <task:scheduled ref="notificationTask" method="oversightTeam" cron="${oversightTeam.cron}"/>
+	    <task:scheduled ref="notificationTask" method="personResponsible" cron="${personResponsible.cron}"/>
+	</task:scheduled-tasks>
+
+    <task:scheduler id="scheduler" />
+
+</beans>

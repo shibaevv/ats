@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="ats" transaction-type="JTA">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <jta-data-source>${ats.jta-data-source}</jta-data-source>
+        <!--non-jta-data-source>${ats.jta-data-source}</non-jta-data-source-->
+
+        <class>net.apollosoft.ats.audit.domain.hibernate.Action</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.ActionGroupDivision</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.ActionResponsible</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.Audit</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.AuditGroupDivision</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.Comment</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.CommentDocument</class>
+        <class>net.apollosoft.ats.domain.hibernate.Document</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.Issue</class>
+        <!--class>net.apollosoft.ats.audit.domain.hibernate.Tag</class-->
+        <class>net.apollosoft.ats.domain.hibernate.Template</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.ActionStatus</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.ActionFollowupStatus</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.BusinessStatus</class>
+        <!--class>net.apollosoft.ats.audit.domain.hibernate.refdata.CategoryType</class-->
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.ParentRisk</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.ParentRiskCategory</class>
+        <class>net.apollosoft.ats.audit.domain.hibernate.refdata.Rating</class>
+        <class>net.apollosoft.ats.domain.hibernate.refdata.ReportType</class>
+        <class>net.apollosoft.ats.domain.hibernate.refdata.UserType</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.Division</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.Function</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.Group</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.Role</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.RoleFunction</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.User</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.UserGroupDivision</class>
+        <class>net.apollosoft.ats.domain.hibernate.security.UserMatrix</class>
+
+        <!-- JPA 2.0 way to specify whether the entities and entity-related state of a persistence unit will be cached -->
+        <!--shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode-->
+        <!--exclude-unlisted-classes>true</exclude-unlisted-classes-->
+
+        <!-- http://bill.burkecentral.com/2007/07/06/co-existence-with-hibernate-jpa-and-ejb3/ -->
+        <properties>
+            <!--property name="transaction.factory_class" value="org.hibernate.transaction.JTATransactionFactory" />
+            <property name="hibernate.transaction.manager_lookup_class" value="${tx.managerLookupClass}" /-->
+            <!--property name="hibernate.transaction.jta.platform" value="${hibernate.transaction.jta.platform}" /-->
+
+            <property name="javax.persistence.sharedCache.mode" value="ENABLE_SELECTIVE" />
+            <property name="javax.persistence.validation.mode" value="none" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect" />
+            <!--property name="hibernate.ejb.interceptor" value="au.gov.qld.fire.dao.hibernate.HibernateInterceptor" /-->
+            <!-- When loading a persistence archive, Hibernate Entity Manager will automatically scan the .jar file for any *hbm.xml files and add them to its mapping information. -->
+            <!--property name="hibernate.ejb.cfgfile" value="/au/gov/qld/fire/jms/hibernate/hibernate.cfg.xml_" /-->
+            <!--property name="hibernate.archive.autodetection" value="class, hbm" /-->
+
+            <!-- https://docs.jboss.org/author/display/AS71/JPA+Reference+Guide#JPAReferenceGuide-UsingtheInfinispansecondlevelcache -->
+            <property name="hibernate.cache.infinispan.cachemanager" value="${hibernate.cache.infinispan.cachemanager}" />
+            <property name="hibernate.cache.region.factory_class" value="${hibernate.cache.region.factory_class}" />
+            <property name="hibernate.cache.region_prefix" value="" />
+            <property name="hibernate.cache.use_query_cache" value="false" />
+            <property name="hibernate.cache.use_second_level_cache" value="true" />
+            <property name="hibernate.cache.use_structured_entries" value="false" />
+
+            <property name="hibernate.flush" value="never" />
+            <!--property name="hibernate.hbm2ddl.auto" value="validate" /-->
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.format_sql" value="false" />
+            <property name="hibernate.generate_statistics" value="false" />
+            <property name="hibernate.bytecode.use_reflection_optimizer" value="false" />
+            <property name="hibernate.current_session_context_class" value="jta" />
+        </properties>
+    </persistence-unit>
+
+</persistence>

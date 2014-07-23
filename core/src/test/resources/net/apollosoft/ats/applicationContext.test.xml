@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+	    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--
+		========================= PROPERTY DEFINITIONS ====================
+	-->
+	<bean id="jdbcPropertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:net/apollosoft/ats/jdbc.test.properties</value>
+			</list>
+		</property>
+		<property name="placeholderPrefix" value="$jdbc{" />
+	</bean>
+
+	<bean id="ldapPropertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:net/apollosoft/ats/ldap.test.properties</value>
+			</list>
+		</property>
+		<property name="placeholderPrefix" value="$ldap{" />
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="$jdbc{dataSource.driverClassName}" p:url="$jdbc{dataSource.url}"
+		p:username="$jdbc{dataSource.username}" p:password="$jdbc{dataSource.password}" />
+
+	<bean id="ldapContextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="url" value="ldap://$ldap{host}:$ldap{port}" />
+		<property name="base" value="$ldap{base.dn}" />
+		<property name="userDn" value="$ldap{bind.dn}" />
+		<property name="password" value="$ldap{batch.password}" />
+	</bean>
+
+	<!-- ========================= CORE DEFINITIONS ======================== -->
+	<import resource="classpath:net/apollosoft/ats/spring/spring-inc.xml" />
+
+	<import resource="classpath:net/apollosoft/ats/spring-inc-security.test.xml" />
+
+</beans>

@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>net.apollosoft.ats</groupId>
+        <artifactId>ats</artifactId>
+        <version>${application.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>ats-ear</artifactId>
+    <packaging>ear</packaging>
+    <name>ATS ear module</name>
+    <dependencies>
+        <dependency>
+            <groupId>net.apollosoft.ats</groupId>
+            <artifactId>ats-web</artifactId>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>ats</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <displayName>ats</displayName>
+                    <description>ATS EAR</description>
+                    <version>1.4</version>
+                    <modules>
+                        <webModule>
+                            <groupId>net.apollosoft.ats</groupId>
+                            <artifactId>ats-web</artifactId>
+                            <contextRoot>/ats</contextRoot>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

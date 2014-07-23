@@ -1,0 +1,952 @@
+/* ========================================================================
+ats css
+========================================================================= */
+#banner {
+    background-color: #406BCA;
+    color: white;
+}
+#application-heading {
+    float: left;
+    font-weight: bold;
+    font-size: 2em;
+    padding-left: 7px;
+    white-space: nowrap;
+    position: relative;
+}
+span.title-details {
+    float:right;
+    font-size: 8.5pt;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-left: 2px ridge blue;
+    position:relative;
+    top:6px;
+}
+span.title-details a {
+    color: white;
+}
+
+.ats-h1 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.ats-h2 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.ats-h3 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.0em;
+}
+.ats-h4 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.ats-h5 {
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.ats-label {
+    text-align: left;
+    vertical-align: top;
+    font-weight: bold;
+    font-size: 1.0em;
+    width: 12em;
+}
+
+.ats-caption {
+    padding: 0 5px 0 0;
+    text-align: left;
+    font-weight: bold;
+    font-size: 110%;
+    white-space: nowrap;
+    width: 99%;
+}
+
+.ats-error {
+    color: #DC143C;
+    text-align: left;
+}
+.ats-warning {
+    color: #DC143C;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* toggle container */
+.ats-container {
+    border: 1px solid #808080;
+    /*margin: 2px;*/
+}
+
+.ats-container-hd {
+    height: auto;
+}
+.ats-container .ats-container-hd {
+    background:transparent url(../js/yui/assets/skins/sam/sprite.png) repeat-x scroll 0 -106px;
+    position:relative;
+}
+#commentForm .ats-container .ats-container-hd {
+    position:static;
+}
+.ats-container .ats-container-hd h2 {
+    color: #000000;
+    font-size: 120%;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.2em 1em;
+    text-align: left;
+}
+.ats-container .ats-container-hd span.collapse {
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    overflow: hidden;
+    position: absolute;
+    right: 2px;
+    text-indent: 9999px;
+    top: 4px;
+    width: 15px;
+}
+.ats-container .ats-container-bd {
+    font-size: 11px;
+    padding: 1em 0 1em 1em;
+    width: 99%;
+    *width: 99%;
+}
+.ats-container .collapse {
+    background:transparent url(../js/yui/assets/skins/sam/sprite.png) no-repeat scroll 0 -400px;
+}
+.ats-container .collapsed {
+    background:transparent url(../js/yui/assets/skins/sam/sprite.png) no-repeat scroll 0 -350px;
+}
+
+.ats-container-option {
+    text-align: right;
+}
+.ats-container-option a {
+    color: blue;
+    padding-bottom: 1em;
+}
+.ats-container-option a:link {
+    text-decoration: none;
+}
+.ats-container-option a:visited {
+    text-decoration: none;
+}
+
+#move0, #move1, #move2, #move3 {
+    width: 9em;
+}
+#move0 button, #move1 button, #move2 button, #move3 button {
+    width: 100%;
+}
+
+/* ========================================================================
+generic css
+========================================================================= */
+/*
+html {
+    filter: expression(document.execCommand('BackgroundImageCache', false, true));
+}
+*/
+/*
+margin and padding on body element can introduce errors
+in determining element position and are not recommended;
+we turn them off as a foundation for YUI CSS treatments.
+*/
+body {
+    margin: 0;
+    padding: 0;
+    background: #DFE8F6 none repeat scroll 0 0;
+    font-family: verdana,helvetica,arial,sans-serif;
+    font-size:0.7em;
+    color:black;
+}
+
+pre {
+    font-family: verdana,helvetica,arial,sans-serif;
+    font-size: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+/* Fonts */
+.bold {font-weight:bold;}
+.italic {font-style:italic;}
+.normal {font-weight:normal;}
+.smallgrey {color:#666;font-size:.9em;}
+.small {font-size:0.95em !important;}
+.smaller {font-size:0.9em !important;}
+.fixedwidth {font-family:Arial Terminal,Lucida Console,Courier New,Courier;}
+.reallysmall {font-size:0.75em !important;}
+
+.wrap {white-space: normal;}
+.nowrap {white-space: nowrap;}
+.left {text-align: left;}
+.center {text-align: center;}
+.right {text-align: right;}
+
+.valign-top {vertical-align: top;}
+.valign-middle {vertical-align: middle;}
+.valign-bottom {vertical-align: bottom;}
+
+.float-left {float: left;}
+.float-right {float: right;}
+
+.hidden {
+    /*visibility: hidden;*/
+    display: none;
+}
+
+/* ========================================================================
+menu css
+========================================================================= */
+#mainMenu div {
+    border: 1px solid #808080;
+    margin: .0em;
+    padding: .5em;
+}
+div.yui-dt-liner em,
+#mainMenu div ul li a span {
+    background-image: url(img/default.png);
+    background-position: 20px 0;
+    background-repeat: no-repeat;
+    height: 17px;
+    width: 17px;
+    display: block;
+    float: left;
+    margin: 2px;
+    overflow: hidden;
+}
+div.yui-dt-liner em.home,
+#mainMenu div ul li#home a span {
+    background-position: -140px 0;
+}
+#mainMenu div ul li#myaction a span {
+    background: url(img/menu/myaction.png) center center no-repeat;
+    /*background-position: -340px 0;*/
+}
+#mainMenu div ul li#action a span {
+    background: url(img/menu/action.png) center center no-repeat;
+    /*background-position: -440px 0;*/
+}
+#mainMenu div ul li#audit a span {
+    background-position: -460px 0;
+}
+#mainMenu div ul li#auditAdmin a span {
+    background-position: -460px 0;
+}
+#mainMenu div ul li#user a span {
+    background: url(img/menu/user.png) center center no-repeat;
+    /*background-position: -360px 0;*/
+}
+#mainMenu div ul li#setup a span {
+    background-position: -360px 0;
+}
+
+div#center div.home {}
+div#center div.myaction {}
+div#center div.action {}
+div#center div.audit {}
+div#center div.auditAdmin {background-color: #ACCBEA}
+div#center div.setup {}
+div#center div.user {}
+
+.loading {
+    background-image: url(img/progress/processing.gif);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    z-index: 9999;
+}
+
+#toolbarDiv,
+#toolbarDiv2 {
+    background-color: #DFE8F6;
+    /*float: right;*/
+}
+#toolbarDiv .yui-push-button,
+#toolbarDiv2 .yui-push-button {
+    background: transparent url(../js/yui/assets/skins/sam/sprite.png) repeat-x scroll 0 -1300px;
+}
+#toolbarDiv .yui-push-button-hover,
+#toolbarDiv2 .yui-push-button-hover {
+    background: transparent url(../js/yui/assets/skins/sam/sprite.png) repeat-x scroll 0 -1700px;
+}
+#toolbarDiv .yui-button,
+#toolbarDiv2 .yui-button {
+    width: 120px;
+    height: 25px;
+    position: relative;
+    overflow: visible;
+    color: #000;
+    float: left;
+}
+#toolbarDiv .yui-button .yui-push-button .yui-toolbar-saveClose {
+    width: 130px;
+}
+#toolbarDiv .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-icon {
+    background-image: url(img/default.png);
+    background-position: 0 0;
+    height: 20px;
+    width: 20px;
+    top: 5px;
+    left: 4px;
+}
+#toolbarDiv .yui-toolbar-filter .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-filter .yui-toolbar-icon {
+    background-position: -320px 0;
+}
+#toolbarDiv .yui-toolbar-reset .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-reset .yui-toolbar-icon {
+    background-position: -200px 0;
+}
+#toolbarDiv .yui-toolbar-print .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-print .yui-toolbar-icon {
+    background-position: -300px 0;
+}
+#toolbarDiv .yui-toolbar-export .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-export .yui-toolbar-icon {
+    background-image: url(img/ext/xls.gif);
+}
+#toolbarDiv .yui-toolbar-new .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-new .yui-toolbar-icon {
+    background-position: -460px 0;
+}
+#toolbarDiv .yui-toolbar-cancel .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-cancel .yui-toolbar-icon {
+    background-position: -420px 0;
+}
+#toolbarDiv .yui-toolbar-edit .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-edit .yui-toolbar-icon {
+    background-position: -80px 0;
+}
+#toolbarDiv .yui-toolbar-save .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-save .yui-toolbar-icon {
+    background-position: -380px 0;
+}
+#toolbarDiv .yui-toolbar-saveClose .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-saveClose .yui-toolbar-icon {
+    background-position: -380px 0;
+}
+#toolbarDiv .yui-toolbar-help .yui-toolbar-icon,
+#toolbarDiv2 .yui-toolbar-help .yui-toolbar-icon {
+    background-position: -160px 0;
+}
+#toolbarDiv .yui-button .first-child a,
+#toolbarDiv2 .yui-button .first-child a {
+    padding-left: 22px;
+    font-size: 13px;
+}
+#toolbarDiv .yui-toolbar-subcont,
+#toolbarDiv2 .yui-toolbar-subcont {
+    border-bottom: 0px solid #808080;
+    margin: 0px;
+    padding: 0px;
+    background-color: #DFE8F6;
+}
+
+td a span, div a span {
+    background-image: url(img/default.png);
+    background-position: 20px 0; /* empty */
+    background-repeat: no-repeat;
+    height: 18px;
+    width: 17px;
+    display: block;
+    float: left;
+    margin: 0 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+/* relative -N x 20px */
+tr a span.empty, div a span.empty {background-position: 20px 0;}
+tr a span.add, div a span.add {background-position: -180px 0;}
+tr a span.edit, div a span.edit {background-position: -180px 0;}
+tr a span.delete, div a span.delete {background-position: -400px 0;}
+tr a span.home, div a span.home {background-position: -140px 0;}
+
+.download {background-position: -380px 0;}
+
+.downloaddoc {background-image: url(img/ext/doc.gif);background-position: 0 0;}
+.downloaddocx {background-image: url(img/ext/doc.gif);background-position: 0 0;}
+.downloaddot {background-image: url(img/ext/doc.gif);background-position: 0 0;}
+.downloadrtf {background-image: url(img/ext/doc.gif);background-position: 0 0;}
+
+.downloadhtm {background-image: url(img/ext/htm.gif);background-position: 0 0;}
+.downloadhtml {background-image: url(img/ext/htm.gif);background-position: 0 0;}
+
+.downloadpdf {background-image: url(img/ext/pdf.gif);background-position: 0 0;}
+
+.downloadppt {background-image: url(img/ext/ppt.gif);background-position: 0 0;}
+.downloadpptx {background-image: url(img/ext/ppt.gif);background-position: 0 0;}
+
+.downloadcsv {background-image: url(img/ext/xls.gif);background-position: 0 0;}
+.downloadxls {background-image: url(img/ext/xls.gif);background-position: 0 0;}
+.downloadxlsm {background-image: url(img/ext/xls.gif);background-position: 0 0;}
+.downloadxlsx {background-image: url(img/ext/xls.gif);background-position: 0 0;}
+
+.downloadvsd {background-position: -380px 0;}
+
+.downloadtxt {background-position: -380px 0;}
+
+.downloadmpp {background-position: -380px 0;}
+
+.downloadmsg {background-position: -380px 0;}
+.downloadoft {background-position: -380px 0;}
+
+.downloadzip {background-position: -380px 0;}
+
+.downloadjpg {background-position: -380px 0;}
+.downloadjpeg {background-position: -380px 0;}
+.downloadgif {background-position: -380px 0;}
+.downloadtif {background-position: -380px 0;}
+.downloadtiff {background-position: -380px 0;}
+
+.selectionPanel {
+    border: 1px solid #65a1d7;
+    background: white;
+    overflow-x: auto;
+    overflow-y: scroll;
+    height: 10em;
+    width: 100%;    
+}
+.selectionPanel div {
+    padding: 3px;
+    cursor: default;
+    zoom: 1;
+}
+.selectionActive {
+    background-color: #0066CC;
+    color: white;
+}
+
+/* ========================================================================
+general css
+========================================================================= */
+
+/* Text input/Textarea caret not displayed in Firefox */
+.mask {
+    overflow: visible; /* or overflow:hidden */
+}
+
+.error {
+    color: red;
+    font-family: monospace;
+    font-size: 1.2em;
+    text-align: left;
+}
+.error-hidden {
+    color: red;
+    font-family: monospace;
+    text-align: left;
+    display: none;
+}
+.red {
+    background-color: #FF6666;
+}
+.green {
+    background-color: #6AFB92;
+}
+.blue {
+    background-color: #A0CFEC;
+}
+.grey {
+    background-color: #ccc;
+}
+.fieldset {
+    border: 1px solid #CCCCCC;
+}
+
+fieldset {
+    border: 1px solid #000000;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    background-color: #FFFFFF;
+    
+}
+legend {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 15px;
+}
+
+input, select {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #65a1d7;
+}
+input.text {
+    width: 99%;
+    *width: 99%;
+}
+input.radio {
+    border: 0px;
+}
+select.select {
+    width: 99%;
+    *width: 99%;
+}
+textarea {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    overflow: auto;
+    border: 1px solid #65a1d7;
+}
+textarea.textarea {
+    width: 99%;
+    height: 200px;
+    *width: 99%;
+}
+
+hr {
+    background-color: #000000;
+    border: medium none;
+    color: #000000;
+    height: 1px;
+    width: 98%;
+}
+
+/* ========================================================================
+Non Data Table css
+========================================================================= */
+.nonDataTable {
+    /*font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;*/
+    width: 100%;
+    *width: 100%;
+}
+.nonDataTable tr {
+    /*background-color: #fff;*/
+}
+.nonDataTable th {
+    /*text-align: left;*/
+    font-weight: bold;
+    padding: 0 5px 2px 0;
+    /*vertical-align: top;*/
+    /*border-bottom: 1px solid #CCCCCC;*/
+}
+.nonDataTable td {
+    /*vertical-align: top;*/
+    /*text-align: left;*/
+    padding: 0 5px 2px 0;
+}
+/** css selector, IE fix - add class="text" */
+.nonDataTable input[type=text], .nonDataTable input.text,
+.nonDataTable input[type=password], .nonDataTable input.password {
+    width: 99%;
+    *width: 99%;
+}
+.nonDataTable input.number {
+    text-align: right;
+    width: 99%;
+    *width: 99%;
+}
+.nonDataTable input.readonly {
+    border: 0px;
+    width: 99%;
+    *width: 99%;
+}
+.nonDataTable select.select {
+    height: 18px;
+    width: 99%;
+    *width: 99%;
+}
+.nonDataTable textarea.textarea {
+    height: 250px;
+    overflow: auto;
+    width: 99%;
+    *width: 99%;
+}
+.nonDataTable table {
+    /*border:1px solid #666;*/
+    width: 99%;
+    *width: 99%;
+}
+.nonDataTable table td {
+    /*padding: 0px 0px 0px 0px;*/
+    vertical-align: top;
+}
+
+/* ========================================================================
+Data Table css
+========================================================================= */
+/* single-pixel border around all cells. */
+.dataTable {
+    border: 1px solid #338BA6;
+    width: 99%;
+    *width: 99%;
+}
+.dataTable caption {
+    padding: 6px 0 3px 3px;
+    text-align: left;
+    font-size: 110%;
+    font-weight: bold;
+}
+.dataTable th {
+    background: transparent url(../js/yui/assets/skins/sam/sprite.png) repeat-x scroll 0 -100px;
+    border-bottom: 1px solid #338BA6;
+    font-weight: bold;
+    padding:2px;
+    vertical-align:top;
+}
+.dataTable tr {
+    border-bottom: 1px solid #338BA6;
+}
+.dataTable tr:hover, .dataTable tr.hilite {
+    /*background-color: #80C9FF;*/
+    background-color: #B2D2FF;
+    color: #000000;
+}
+.dataTable tr.even {
+    background-color: #DBEAFF;
+    color: #000000;
+}
+
+.dataTable tr.odd {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.dataTable col.odd, .dataTable colgroup.odd {
+    background-color: #DBEAFF;
+    color: #000000;
+}
+.dataTable col.even, .dataTable colgroup.even {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+.dataTable td {
+    padding: 2px;
+    vertical-align: top;
+}
+/* Highlight the focused form field when the user clicks on it or tabs to it */
+.dataTable input {
+    width: 99%;
+    *width: 99%;
+    padding: 0.2em 0.0em 0.2em 0.0em;
+    margin: 0;
+    border: 2px solid #ffffff;
+}
+/** IE fix - add class="text" */
+.dataTable input.text {
+    width: 99%;
+    *width: 99%;
+}
+.dataTable textarea {
+    height: auto;
+    width: 99%;
+    *width: 99%;
+    padding: 0.2em 0.4em 0.2em 0.4em;
+    margin: 0;
+    border: 2px solid #ffffff;
+}
+.dataTable input:focus, textarea:focus {
+    border: 1px solid #000000;
+}
+
+/* Sizes */
+.height1 {height: 1em;}
+.height5 {height: 5em;}
+.height10 {height: 10em;}
+.height15 {height: 15em;}
+.height20 {height: 20em;}
+.height100 {height: 100%;}
+
+.width1em {width: 1em;}
+.width2em {width: 2em;}
+.width3em {width: 3em;}
+.width5em {width: 5em;}
+.width8em {width: 8em;}
+.width10em {width: 10em;}
+.width11em {width: 11em;}
+.width12em {width: 12em;}
+.width15em {width: 15em;}
+.width18em {width: 18em;}
+.width20em {width: 20em;}
+.width50em {width: 50em;}
+.width10 {width: 10%;}
+.width11 {width: 11%;}
+.width20 {width: 20%;}
+.width25 {width: 25%;}
+.width30 {width: 30%;}
+.width33 {width: 33%;}
+.width40 {width: 40%;}
+.width50 {width: 50%;}
+.width60 {width: 60%;}
+.width70 {width: 70%;}
+.width80 {width: 80%;}
+.width90 {width: 90%;}
+.width100 {width: 100%;}
+
+/* ========================================================================
+audit-tree css
+========================================================================= */
+
+.icon-audit   { display:block; height: 22px; padding-left: 20px; background: transparent url(img/icons.png) 0   0px  no-repeat; }
+.icon-dmg     { display:block; height: 22px; padding-left: 20px; background: transparent url(img/icons.png) 0 -36px  no-repeat; }
+.icon-issue   { display:block; height: 22px; padding-left: 20px; background: transparent url(img/icons.png) 0 -72px  no-repeat; }
+.icon-comment { display:block; height: 22px; padding-left: 20px; background: transparent url(img/icons.png) 0 -108px no-repeat; }
+.icon-action  { display:block; height: 22px; padding-left: 20px; background: transparent url(img/icons.png) 0 -144px no-repeat; }
+.icon-jar     { display:block; height: 22px; padding-left: 20px; background: transparent url(img/icons.png) 0 -180px no-repeat; }
+.icon-zip     { display:block; height: 22px; padding-left: 20px; background: transparent url(img/icons.png) 0 -216px no-repeat; }
+.htmlnodelabel { margin-left: 20px; }
+
+/* ========================================================================
+yui-ext css
+========================================================================= */
+
+/* to expand body main area to fill the screen */
+#yui-main {
+    /*height: 88%;*/
+}
+
+/** in progress loading */
+.yui-skin-sam .mask {
+    opacity: 0.0;
+    filter: alpha(opacity = 0);
+    z-index: 9999;
+}
+
+.yui-skin-sam .yui-dt table {
+    width: 100%;
+    *width: 100%;
+}
+
+input.yui-dt-checkbox {
+    border: 0px;
+}
+input.yui-dt-radio {
+    border: 0px;
+}
+
+.yui-skin-sam .yui-layout {
+    background-color: #DFE8F6;
+}
+
+.yui-skin-sam .yui-panel .hd {
+    padding: 0px 0px 0px 0px;
+}
+.yui-skin-sam .yui-dialog .ft {
+    padding: 5px 0px 5px 0px;
+}
+
+/* styles for entire widget */
+/** input, css selector, IE fix - add class="text" */
+.yui-skin-sam .yui-ac-input,
+.yui-ac input[type=text], .yui-ac input.text {
+    overflow: hidden;
+    width: 99%;
+    *width: 99%;
+}
+
+.yui-skin-sam .yui-ac-container {
+    left: 0px;
+}
+
+/* styles for header/body/footer wrapper within container */
+.yui-skin-sam .yui-ac-content {
+    position:absolute;width:100%;border:1px solid #808080;background:#fff;overflow:hidden;z-index:9050;
+}
+/* styles for container shadow */
+.yui-skin-sam .yui-ac-shadow {
+    position:absolute;margin:.3em;width:100%;background:#000;-moz-opacity: 0.10;opacity:.10;filter:alpha(opacity=10);z-index:9049;
+}
+/* styles for results list */
+.yui-skin-sam .yui-ac-content ul{
+    margin:0;padding:0;width:100%;
+}
+/* styles for result item */
+.yui-skin-sam .yui-ac-content li {
+    margin:0;padding:2px 5px;cursor:default;white-space:nowrap;
+}
+/* styles for prehighlighted result item */
+.yui-skin-sam .yui-ac-content li.yui-ac-prehighlight {
+    background:#B3D4FF;
+}
+/* styles for highlighted result item */
+.yui-skin-sam .yui-ac-content li.yui-ac-highlight {
+    background:#426FD9;color:#FFF;
+}
+
+/* push button: add/remove */
+.yui-button#addBusinessStatus button,
+.yui-button#addComment button,
+.yui-button#addFunction button,
+.yui-button#addRole button,
+.yui-button#addUserMatrix button,
+.yui-button button span.add {
+    background:url(img/add.gif) 3% 50% no-repeat;
+    padding-left:2em;
+}
+.yui-button button span.edit {
+    background:url(img/notify/edit.png) 3% 50% no-repeat;
+    padding-left:2em;
+}
+.yui-button button span.remove {
+    background:url(img/notify/delete.png) 3% 50% no-repeat;
+    padding-left:1em;
+}
+
+/* autocomplete button min-height: 1.6em; */
+.yui-skin-sam .yui-button button, .yui-skin-sam .yui-button a, .yui-skin-sam .yui-button a:visited {
+    font-size: 100%;
+    min-height: 1.6em;
+    padding-left: 5px;
+}
+.yui-ac .yui-button {
+    margin: auto 0.1em;
+    vertical-align: middle;
+}
+.yui-ac .yui-button button {
+    background: url(img/ac-arrow-dn.png) center center no-repeat;
+}
+.yui-ac .open .yui-button button {
+    background: url(img/ac-arrow-dn.png) center center no-repeat;
+}
+
+.yui-skin-sam .yui-ac-content {
+    overflow: visible;
+}
+
+.yui-skin-sam .yui-dt th .yui-dt-liner {
+    white-space:nowrap;
+    /*white-space: normal;*/
+}
+
+.yui-skin-sam .yui-dt tr td {
+    vertical-align: top;
+}
+
+/* Remove row striping, column borders, and sort highlighting 
+.yui-skin-sam tr.yui-dt-odd,
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-desc,
+.yui-skin-sam tr.yui-dt-even td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-even td.yui-dt-desc {
+    background-color: #fff;
+}
+.yui-skin-sam .yui-dt tbody td {
+    border-bottom: 1px solid #ddd;
+}
+.yui-skin-sam .yui-dt thead th {
+    border-bottom: 1px solid #7f7f7f;
+}
+.yui-skin-sam .yui-dt tr.yui-dt-last td,
+.yui-skin-sam .yui-dt th,
+.yui-skin-sam .yui-dt td {
+    border: none;
+}
+
+*/
+
+/* Class for marked rows 
+.yui-skin-sam .yui-dt tr.overdue,
+.yui-skin-sam .yui-dt tr.overdue td.yui-dt-asc,
+.yui-skin-sam .yui-dt tr.overdue td.yui-dt-desc,
+.yui-skin-sam .yui-dt tr.overdue td.yui-dt-asc,
+.yui-skin-sam .yui-dt tr.overdue td.yui-dt-desc {
+    background-color: #a33;
+    color: #fff;
+}
+
+*/
+
+
+#yui-history-iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 1px; height: 1px; /* avoid scrollbars */
+  visibility: hidden;
+}
+
+#alertDiv .bd {
+    overflow: auto;
+    text-align: left;
+}
+
+#editDiv .bd {
+    overflow: auto;
+    background-color: fff;
+    padding: 10px;
+}
+
+.filter {
+    padding: 5px 10px 10px 5px;
+} 
+.filterLabel {
+    /*text-align: right;*/
+    /*vertical-align: top;*/
+    font-weight: bold;
+    font-size: 1.0em;
+    /*white-space: nowrap;*/
+    /*width: 14em;*/
+}
+.filterInput {
+    width: 99%;
+    *width: 99%;
+}
+.filterToggle {
+
+}
+.filterContainer {
+
+}
+/* needed for stacked instances for ie & sf z-index bug of absolute inside relative els */
+#filter0 {z-index: 18;}
+#filter1 {z-index: 17;}
+#filter2 {z-index: 16;}
+#filter3 {z-index: 15;}
+#filter4 {z-index: 14;}
+#filter5 {z-index: 13;}
+#filter6 {z-index: 12;}
+#filter7 {z-index: 11;}
+#filter8 {z-index: 10;}
+#filter9 {z-index:  9;}
+
+/** login page */
+#headerDiv {
+    height: 50px;  
+    /*background-color: #4b9ad5;*/
+}
+#headerDiv div{
+    color: white; 
+    font-size: 3em; 
+    font-weight: bold; 
+    font-family: Century Gothic; 
+    margin: 0.5em; 
+}
+
+#loginMsg {
+    height: 8em;
+}
+
+#loginMsg label{
+    font-size: 20pt; 
+    font-family: Century Gothic; 
+    font-weight: bold;
+}
+
+#waitDiv {
+    display: none;
+    background-color: white;
+}
+
+#loginDiv div.bd {
+    padding: 13px;
+}
+
+.login-button {
+    font-weight: bold;
+    background: #BDBCE2;
+    height: 25px;
+}
